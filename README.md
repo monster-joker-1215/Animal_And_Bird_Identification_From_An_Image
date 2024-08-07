@@ -1,4 +1,4 @@
-# Image_And_Bird_Identification_From_An_Image
+# Animal_And_Bird_Identification_From_An_Image
 
 In this project, we can identify animals and birds from uploaded images. It preprocesses images and predicts the species with a trained model.
 
