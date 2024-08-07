@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Species Identification</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}">
+    <script src="{{ url_for('static', filename='js/scripts.js')}}"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+    <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+</head>
+
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <img src="{{ url_for('static', filename='images/logo.png')}}" class="logo">
+                <ul>
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#predict">Predict</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </nav>
+            <div class="header-text">
+                <p><span>Embark</span> on a journey through the diverse of life with our cutting-edge species prediction platform. Uncover the secrets of biodiversity, where each species a unique story. Let the wonders of nature unfold before your eyes.</p>
+                <div class="social-media">
+                    <a href="https://www.facebook.com/guptarahul1215" target="_blank"><i class='bx bxl-facebook'></i></a>
+                    <a href="https://github.com/monster-joker-1215" target="_blank"><i class='bx bxl-github'></i></a>
+                    <a href="https://www.instagram.com/guptarahul1215" target="_blank"><i class='bx bxl-instagram-alt'></i></a>
+                    <a href="https://www.linkedin.com/in/rahul-gupta-64993a265" target="_blank"><i class='bx bxl-linkedin'></i></a>
+                </div>
+                <a href="#predict" class="btn"><i class='bx bx-right-arrow-circle'></i>Get Start</a>
+            </div>
+        </div>
+    </div>
+    <div id="predict">
+        <h1>Let's Predict Species Of Various Category!🕊️</h1>
+        <div class="left-side">
+            <form id="imageForm" enctype="multipart/form-data">
+                <input type="file" name='image' id="fileInput" accept="image/*" style="display: none;">
+            </form>
+            <button id="btn1" onclick="chooseImageFromGallery()"><i class='bx bx-upload'></i>Upload Photo</button>
+            <div id="imageContainer" style="display: none;">
+                <img id="uploadedImage" src="" alt="Uploaded Image">
+            </div>
+            <button type="button" id="searchButton" onclick="searchImage()" style="display: none;"><i class='bx bx-search-alt'></i>Search</button>
+        </div>
+        <div class="right-side">
+
+        </div>
+    </div>
+    <div id="about">
+        <h1>About Project!</h1>
+        <div class="about-container">
+            <div class="species1-info">
+                <div class="species1-photo">
+                    <img src="{{ url_for('static', filename='images/species1.jpg')}}">
+                </div>
+                <div class="species1-description">
+                    <h2>Mixed Species: <span>Lion🦁 & Parrot🦜</span></h2>
+                    <p>Our CNN model can identify multiple species in a single image, making it useful for wildlife monitoring and conservation efforts. This image captures the diversity of nature with an animal and a bird sharing the same frame.</p>
+                </div>
+            </div>
+            <br><br>
+            <div class="species2-info">
+                <div class="species2-description">
+                    <h2>Animal Species: <span>Fox🦊</span></h2>
+                    <p>This image showcases a beautiful Fox, a species found in various habitats. Our CNN model can accurately identify this animal and many others, making it a valuable tool for wildlife research and conservation</p>
+                </div>
+                <div class="species2-photo">
+                    <img src="{{ url_for('static', filename='images/species2.jpg')}}">
+                </div>
+            </div>
+            <br><br>
+            <div class="species3-info">
+                <div class="species3-photo">
+                    <img src="{{ url_for('static', filename='images/species3.jpg')}}">
+                </div>
+                <div class="species3-description">
+                    <h2>Bird Species: <span>Swan🦢</span></h2>
+                    <p>Meet the vibrant Swan, a species known for its colorful plumage and unique behaviors. Our CNN model excels at recognizing bird species like this, aiding ornithologists and bird enthusiasts in their studies.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="team">
+        <h1>Our Team!</h1>
+        <div class="team-container">
+            <div class="team-box">
+                <img src="{{ url_for('static', filename='images/subhojit.jpg')}}">
+                <div class="team-layer">
+                    <h4>Subhojit Jana</h4>
+                    <h5>(BackEnd Developer)</h5>
+                    <p>Created DeepLearning model of the project using different convolution neural network algorithms.</p>
+                    <a href="https://www.linkedin.com/in/jana-subhojit-b09a88291" target="_blank"><i class='bx bxl-linkedin'></i></a>
+                </div>
+            </div>
+
+            <div class="team-box">
+                <img src="{{ url_for('static', filename='images/rahul.jpg')}}">
+                <div class="team-layer">
+                    <h4>Rahul Gupta</h4>
+                    <h5>(FrontEnd Developer)</h5>
+                    <p>Created FrontEnd of the project with outstanding web development leading skills.</p>
+                    <a href="https://www.linkedin.com/in/rahul-gupta-64993a265" target="_blank"><i class='bx bxl-linkedin'></i></a>
+                </div>
+            </div>
+
+            <div class="team-box">
+                <img src="{{ url_for('static', filename='images/uday.jpg')}}">
+                <div class="team-layer">
+                    <h4>Uday Gowda</h4>
+                    <h5>(Data Administrator)</h5>
+                    <p>Collects data from different websites for the development of convolution neural network model.</p>
+                    <a href="#" target="_blank"><i class='bx bxl-linkedin'></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="contact">
+        <h1>Contact Us!</h1>
+        <div class="leftside-contact">
+            <p><i class='bx bxl-gmail bx-burst'></i>guptarahul1215@gmail.com</p>
+            <p><i class='bx bx-phone bx-tada'></i>09594742797</p>
+            <p class="p1"><i class='bx bx-map bx-flashing'></i><span>3, mathuri chauhan chawl, chakki naka, gosai pura, hajimalang road, kalyan(East)-421306.</span></p>
+            <div class="social-media">
+                <a href="https://www.facebook.com/guptarahul1215" target="_blank"><i class='bx bxl-facebook'></i></a>
+                <a href="https://github.com/monster-joker-1215" target="_blank"><i class='bx bxl-github'></i></a>
+                <a href="https://www.instagram.com/guptarahul1215" target="_blank"><i class='bx bxl-instagram-alt'></i></a>
+                <a href="https://www.linkedin.com/in/rahul-gupta-64993a265" target="_blank"><i class='bx bxl-linkedin'></i></a>
+            </div>
+        </div>
+        <div class="rightside-contact">
+            <form name="submit-to-google-sheet">
+                <input type="text" name="Name" placeholder="Your Name" required>
+                <input type="email" name="Email" placeholder="Your Email" required>
+                <textarea name="Message" rows="8" placeholder="Your Message"></textarea>
+                <button type="submit" class="btn2" onclick="submitToGoogleSheet()"><i class='bx bx-send'></i>Send Message</button>
+            </form>
+            <h4 id="message"></h4>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-text">
+            <p>Copyright &copy; 2023 by Monster_Joker🃏 | All Rights Reserved.</p>
+        </div>
+
+        <div class="footer-iconTop">
+            <a href="#header"><i class="bx bx-up-arrow-alt"></i></a>
+        </div>
+    </div>
+
+</body>
+
+</html>
